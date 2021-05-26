@@ -3,7 +3,7 @@ package api
 import (
 	"context"
 
-	"github.com/Hamster601/flashSale/api/rpc"
+	"github.com/Hamster601/flashSale/application/api/rpc"
 
 	"github.com/sirupsen/logrus"
 )
