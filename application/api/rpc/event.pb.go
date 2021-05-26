@@ -7,6 +7,10 @@
 package rpc
 
 import (
+	context "context"
+	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -497,4 +501,203 @@ func file_event_proto_init() {
 	file_event_proto_rawDesc = nil
 	file_event_proto_goTypes = nil
 	file_event_proto_depIdxs = nil
+}
+
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
+const _ = grpc.SupportPackageIsVersion4
+
+// EventRPCClient is the client API for EventRPC service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EventRPCClient interface {
+	EventOnline(ctx context.Context, in *Event, opts ...grpc.CallOption) (*Response, error)
+	EventOffline(ctx context.Context, in *Event, opts ...grpc.CallOption) (*Response, error)
+	TopicOnline(ctx context.Context, in *Topic, opts ...grpc.CallOption) (*Response, error)
+	TopicOffline(ctx context.Context, in *Topic, opts ...grpc.CallOption) (*Response, error)
+}
+
+type eventRPCClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewEventRPCClient(cc grpc.ClientConn) EventRPCClient {
+	return &eventRPCClient{&cc}
+}
+
+func (c *eventRPCClient) EventOnline(ctx context.Context, in *Event, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
+	err := c.cc.Invoke(ctx, "/rpc.EventRPC/EventOnline", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventRPCClient) EventOffline(ctx context.Context, in *Event, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
+	err := c.cc.Invoke(ctx, "/rpc.EventRPC/EventOffline", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventRPCClient) TopicOnline(ctx context.Context, in *Topic, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
+	err := c.cc.Invoke(ctx, "/rpc.EventRPC/TopicOnline", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventRPCClient) TopicOffline(ctx context.Context, in *Topic, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
+	err := c.cc.Invoke(ctx, "/rpc.EventRPC/TopicOffline", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EventRPCServer is the server API for EventRPC service.
+// All implementations must embed UnimplementedEventRPCServer
+// for forward compatibility
+type EventRPCServer interface {
+	EventOnline(context.Context, *Event) (*Response, error)
+	EventOffline(context.Context, *Event) (*Response, error)
+	TopicOnline(context.Context, *Topic) (*Response, error)
+	TopicOffline(context.Context, *Topic) (*Response, error)
+	mustEmbedUnimplementedEventRPCServer()
+}
+
+// UnimplementedEventRPCServer must be embedded to have forward compatible implementations.
+type UnimplementedEventRPCServer struct {
+}
+
+func (UnimplementedEventRPCServer) EventOnline(context.Context, *Event) (*Response, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EventOnline not implemented")
+}
+func (UnimplementedEventRPCServer) EventOffline(context.Context, *Event) (*Response, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EventOffline not implemented")
+}
+func (UnimplementedEventRPCServer) TopicOnline(context.Context, *Topic) (*Response, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TopicOnline not implemented")
+}
+func (UnimplementedEventRPCServer) TopicOffline(context.Context, *Topic) (*Response, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TopicOffline not implemented")
+}
+func (UnimplementedEventRPCServer) mustEmbedUnimplementedEventRPCServer() {}
+
+// UnsafeEventRPCServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EventRPCServer will
+// result in compilation errors.
+type UnsafeEventRPCServer interface {
+	mustEmbedUnimplementedEventRPCServer()
+}
+
+func RegisterEventRPCServer(s *grpc.Server, srv EventRPCServer) {
+	s.RegisterService(&EventRPC_ServiceDesc, srv)
+}
+
+func _EventRPC_EventOnline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Event)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventRPCServer).EventOnline(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/rpc.EventRPC/EventOnline",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventRPCServer).EventOnline(ctx, req.(*Event))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventRPC_EventOffline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Event)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventRPCServer).EventOffline(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/rpc.EventRPC/EventOffline",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventRPCServer).EventOffline(ctx, req.(*Event))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventRPC_TopicOnline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Topic)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventRPCServer).TopicOnline(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/rpc.EventRPC/TopicOnline",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventRPCServer).TopicOnline(ctx, req.(*Topic))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventRPC_TopicOffline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Topic)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventRPCServer).TopicOffline(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/rpc.EventRPC/TopicOffline",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventRPCServer).TopicOffline(ctx, req.(*Topic))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EventRPC_ServiceDesc is the grpc.ServiceDesc for EventRPC service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EventRPC_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "rpc.EventRPC",
+	HandlerType: (*EventRPCServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "EventOnline",
+			Handler:    _EventRPC_EventOnline_Handler,
+		},
+		{
+			MethodName: "EventOffline",
+			Handler:    _EventRPC_EventOffline_Handler,
+		},
+		{
+			MethodName: "TopicOnline",
+			Handler:    _EventRPC_TopicOnline_Handler,
+		},
+		{
+			MethodName: "TopicOffline",
+			Handler:    _EventRPC_TopicOffline_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "event.proto",
 }
