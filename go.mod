@@ -27,14 +27,12 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/spf13/viper v1.7.1
 	github.com/ugorji/go v1.2.6 // indirect
-	go.etcd.io/etcd v3.3.25+incompatible
+	go.etcd.io/etcd v3.3.25+incompatible // indirect
 	go.uber.org/multierr v1.7.0 // indirect
 	go.uber.org/zap v1.17.0 // indirect
 	golang.org/x/crypto v0.0.0-20210513164829-c07d793c2f9a // indirect
-	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616 // indirect
 	golang.org/x/net v0.0.0-20210525063256-abc453219eb5 // indirect
 	golang.org/x/sys v0.0.0-20210525143221-35b2ab0089ea
-	golang.org/x/tools v0.1.2 // indirect
 	google.golang.org/genproto v0.0.0-20210524171403-669157292da3 // indirect
 	google.golang.org/grpc v1.38.0
 	google.golang.org/grpc/examples v0.0.0-20210609180517-95e48a892d6c // indirect

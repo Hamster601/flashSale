@@ -570,7 +570,6 @@ type EventRPCServer interface {
 	EventOffline(context.Context, *Event) (*Response, error)
 	TopicOnline(context.Context, *Topic) (*Response, error)
 	TopicOffline(context.Context, *Topic) (*Response, error)
-	mustEmbedUnimplementedEventRPCServer()
 }
 
 // UnimplementedEventRPCServer must be embedded to have forward compatible implementations.
