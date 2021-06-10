@@ -3,10 +3,10 @@ package api
 import (
 	"net/http"
 
-	"github.com/Hamster601/flashSale/application/domain/auth"
 	"github.com/Hamster601/flashSale/application/domain/event"
 	"github.com/Hamster601/flashSale/application/domain/shop"
 	"github.com/Hamster601/flashSale/application/domain/stock"
+	auth "github.com/Hamster601/flashSale/application/domain/user"
 	"github.com/Hamster601/flashSale/application/infrastructures/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
