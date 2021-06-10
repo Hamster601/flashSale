@@ -1,4 +1,4 @@
-package amd
+package cmd
 
 import (
 	"fmt"
@@ -6,6 +6,7 @@ import (
 
 	"github.com/Hamster601/flashSale/application/infrastructures/cluster"
 	"github.com/Hamster601/flashSale/application/infrastructures/stores/etcd"
+	"github.com/Hamster601/flashSale/application/infrastructures/logger"
 	"github.com/mitchellh/go-homedir"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -71,7 +72,7 @@ func initConfig() {
 	if err := etcd.Init(); err != nil {
 		panic(err)
 	}
-	logger.InitLogger()
+	log.InitLogger()
 	if err := cluster.WatchClusterConfig(); err != nil {
 		panic(err)
 	}

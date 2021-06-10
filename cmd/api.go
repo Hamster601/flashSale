@@ -6,8 +6,8 @@ import (
 	"sync"
 	"syscall"
 
-	rpc "github.com/Hamster601/flashSale/application/http/apc"
 	api "github.com/Hamster601/flashSale/application/http/api"
+	rpc "github.com/Hamster601/flashSale/application/http/rpc"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
