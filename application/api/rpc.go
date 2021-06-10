@@ -38,4 +38,6 @@ func (s *EventRPCServer) TopicOffline(ctx context.Context, t *rpc.Topic) (*rpc.R
 
 	return resp, nil
 }
-func (s *EventRPCServer) mustEmbedUnimplementedEventRPCServer() {}
+func (s *EventRPCServer) mustEmbedUnimplementedEventRPCServer() {
+	return
+}
