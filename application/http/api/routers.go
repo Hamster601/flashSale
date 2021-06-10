@@ -1,5 +1,10 @@
 package server
 
+import (
+	"github.com/Hamster601/flashSale/application/api"
+	"github.com/Hamster601/flashSale/application/infrastructures/utils"
+	"github.com/gin-gonic/gin"
+)
 
 func initRouters(g *gin.Engine) {
 	g.POST("/login", api.User{}.Login)
