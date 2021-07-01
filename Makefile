@@ -1,7 +1,7 @@
 all: build
 
 proto: application/api/rpc/event.proto
-	protoc --go_out=plugins=grpc:./ application/api/rpc/event.proto
+	protoc --go-grpc_out=./ application/api/rpc/event.proto
 
 build:
 	go build -o bin/seckill main.go
