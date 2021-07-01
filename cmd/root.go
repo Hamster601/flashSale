@@ -17,9 +17,9 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "seckill",
-	Short: "Seckill server.",
-	Long:  `Seckill server.`,
+	Use:   "flashSale",
+	Short: "flashSale server.",
+	Long:  `flashSale server.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	//Run: func(cmd *cobra.Command, args []string) { },
@@ -40,7 +40,7 @@ func init() {
 	cobra.OnInitialize(initConfig)
 
 	flags := rootCmd.PersistentFlags()
-	flags.StringVarP(&cfgFile, "config", "c", "./config/conf.toml", "config file (default is $HOME/.seckill.toml)")
+	flags.StringVarP(&cfgFile, "config", "c", "./config/conf.toml", "config file (default is $HOME/.conf.toml)")
 }
 
 // initConfig reads in config file and ENV variables if set.
