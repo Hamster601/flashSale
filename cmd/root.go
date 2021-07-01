@@ -56,7 +56,7 @@ func initConfig() {
 			os.Exit(1)
 		}
 
-		// Search config in home directory with name ".seckill" (without extension).
+		// Search config in home directory with name ".conf" (without extension).
 		viper.AddConfigPath(home)
 		// 设置配置文件名
 		viper.SetConfigName(".conf")
