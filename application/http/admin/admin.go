@@ -30,7 +30,7 @@ func Run() error {
 	// 初始化路由
 	initRouters(g)
 
-	cluster.Init("seckill")
+	cluster.Init("flashSale")
 	if nodes, err := cluster.Discover(); err == nil {
 		log, _ := json.Marshal(nodes)
 		logrus.Info("discover nodes ", string(log))
