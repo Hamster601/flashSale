@@ -4,7 +4,7 @@ import (
 	"net"
 
 	"github.com/Hamster601/flashSale/application/domain/shop"
-	"github.com/Hamster601/flashSale/application/infrastructures/stores/redis"
+	"github.com/Hamster601/flashSale/application/infrastructures/pkg/redis"
 	"github.com/Hamster601/flashSale/application/infrastructures/utils"
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
