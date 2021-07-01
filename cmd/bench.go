@@ -56,8 +56,8 @@ func (tm *TaskManager) onConfigChange(task Task) {
 // benchCmd represents the bench command
 var benchCmd = &cobra.Command{
 	Use:   "bench",
-	Short: "Seckill benchmark tool.",
-	Long:  `Seckill benchmark tool.`,
+	Short: "flashSale benchmark tool.",
+	Long:  `flashSale benchmark tool.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("bench called")
 		logrus.SetLevel(logrus.DebugLevel)
