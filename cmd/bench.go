@@ -65,7 +65,7 @@ var benchCmd = &cobra.Command{
 		doBench()
 
 		// TODO: 还需要加上初始化 etcd 的代码，待完善
-		// watchTaskConfig((&TaskManager{}).onConfigChange)
+		watchTaskConfig((&TaskManager{}).onConfigChange)
 	},
 }
 
