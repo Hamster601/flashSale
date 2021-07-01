@@ -40,7 +40,7 @@ func init() {
 	cobra.OnInitialize(initConfig)
 
 	flags := rootCmd.PersistentFlags()
-	flags.StringVarP(&cfgFile, "config", "c", "./config/seckill.toml", "config file (default is $HOME/.seckill.toml)")
+	flags.StringVarP(&cfgFile, "config", "c", "./config/conf.toml", "config file (default is $HOME/.seckill.toml)")
 }
 
 // initConfig reads in config file and ENV variables if set.
