@@ -36,25 +36,22 @@ func Run() error {
 	//初始化集群
 	cluster.Init("seckill")
 	var addr string
-	if addr, err = utils.Extract(bind); err == nil {
-		//注册节点信息
-		version := viper.GetString("api.version")
-		if version == "" {
-			version = "v0.1"
-		}
-		once.Do(func() {
-			node = &cluster.Node{
-				Addr:    addr,
-				Version: version,
-				Proto:   "gRPC",
-			}
-			err = cluster.Register(node, 6)
-		})
-	}
-
-	if err != nil {
+	if addr, err = utils.Extract(bind); err != nil {
 		return err
 	}
+	//注册节点信息
+	version := viper.GetString("api.version")
+	if version == "" {
+		version = "v0.1"
+	}
+	once.Do(func() {
+		node = &cluster.Node{
+			Addr:    addr,
+			Version: version,
+			Proto:   "gRPC",
+		}
+		err = cluster.Register(node, 6)
+	})
 
 	return grpcS.Serve(lis)
 }
