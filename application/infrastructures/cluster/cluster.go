@@ -8,11 +8,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Hamster601/flashSale/application/infrastructures/stores/etcd"
+	"github.com/Hamster601/flashSale/application/infrastructures/pkg/etcd"
 	etcdv3 "github.com/coreos/etcd/clientv3"
+	"github.com/coreos/etcd/etcdserver/api/v3rpc/rpctypes"
 	"github.com/coreos/etcd/mvcc/mvccpb"
 	"github.com/sirupsen/logrus"
-	"github.com/coreos/etcd/etcdserver/api/v3rpc/rpctypes"
 )
 
 type Config struct {

@@ -6,7 +6,7 @@ import (
 
 	"github.com/Hamster601/flashSale/application/infrastructures/cluster"
 	log "github.com/Hamster601/flashSale/application/infrastructures/logger"
-	"github.com/Hamster601/flashSale/application/infrastructures/stores/etcd"
+	"github.com/Hamster601/flashSale/application/infrastructures/pkg/etcd"
 	"github.com/mitchellh/go-homedir"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
