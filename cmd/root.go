@@ -5,8 +5,8 @@ import (
 	"os"
 
 	"github.com/Hamster601/flashSale/application/infrastructures/cluster"
+	log "github.com/Hamster601/flashSale/application/infrastructures/logger"
 	"github.com/Hamster601/flashSale/application/infrastructures/stores/etcd"
-	"github.com/Hamster601/flashSale/application/infrastructures/logger"
 	"github.com/mitchellh/go-homedir"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -58,7 +58,8 @@ func initConfig() {
 
 		// Search config in home directory with name ".seckill" (without extension).
 		viper.AddConfigPath(home)
-		viper.SetConfigName(".seckill")
+		// 设置配置文件名
+		viper.SetConfigName(".conf")
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match
