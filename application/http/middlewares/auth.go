@@ -9,6 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// 基于token的验证
 func NewAuthMiddleware(redirect bool) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		var info *user.Info
